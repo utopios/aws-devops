@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: first resource with one ec2
+Parameters: 
+  InstanceType:
+    Description: Type of instance
+    Type: String
+    Default: t2.micro
+  OperationSystem:
+    Description: Os System
+    Type: String
+    Default: Linux
+  PairKeyName:
+    Description: Name of ssh key
+    Type: String
+    Default: demo-aws-devops
+# Mappings: 
+
+# Conditions: 
+
+Resources:
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: security group demo
+      SecurityGroupIngress:
+        - IpProtocol : tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+  MyEC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      KeyName:
+        ref: PairKeyName
+      ImageId: ami-000037ee86985ff3b
+      InstanceType:
+        ref: InstanceType
+      SecurityGroupIds:
+        - Ref: SecurityGroup
+      
+# Outputs:
