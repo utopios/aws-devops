@@ -31,11 +31,18 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       KeyName:
-        ref: PairKeyName
+        Ref: PairKeyName
       ImageId: ami-000037ee86985ff3b
-      InstanceType:
-        ref: InstanceType
+      InstanceType: 
+        Ref: InstanceType
       SecurityGroupIds:
         - Ref: SecurityGroup
+      UserData:
+        Fn::Base64: |
+          #!bin/bash -xe
+          yum update
+      Tags:
+        - Key: application
+          Value: web
       
 # Outputs:
