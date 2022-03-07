@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: first resource with one ec2
 Parameters: 
   InstanceType:
-    Description: Type of instance
+    Description: Description of instance type
     Type: String
     Default: t2.micro
   OperationSystem:
