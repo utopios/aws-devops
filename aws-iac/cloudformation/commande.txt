@@ -4,3 +4,7 @@ aws cloudformation create-stack --stack-name first-stack --template-body file:
 
 --Suppression d'une stack
 aws cloudformation delete-stack --stack-name first-stack
+
+
+--Pour installer aws cdk, il faut insaller nodejs ensuite, on install le cdk avec
+npm install -g aws-cdk
