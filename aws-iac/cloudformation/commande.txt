@@ -8,3 +8,7 @@ aws cloudformation delete-stack --stack-name first-stack
 
 --Pour installer aws cdk, il faut insaller nodejs ensuite, on install le cdk avec
 npm install -g aws-cdk
+
+--pour connecter docker à notre registry
+aws ecr get-login-password --region eu-west-3 | docker login --us
+ername AWS --password-stdin 639962416620.dkr.ecr.eu-west-3.amazonaws.com 
